@@ -1,0 +1,20 @@
+.header {
+    font-size: 25px;
+    color: #fff;
+    margin: 20px;
+}
+
+.headerItem {
+    min-width: 121px;
+}
+
+/* .strong {
+    text-align: center;
+    padding: 0;
+} */
+
+@media only screen and (min-width: 1400px) {
+    .strong {
+        border: 1px solid #fff;
+    }
+}
