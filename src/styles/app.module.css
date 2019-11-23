@@ -45,6 +45,18 @@
 .subTitles {
   margin-top: 30px;
 }
+.projectList {
+  color: white;
+}
+.ticTacToe {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.45),
+      rgba(255, 255, 255, 0.45)
+    ),
+    url(../images/tic-tac-toe.png);
+  height: 450px;
+  width: 450px;
+}
 
 @media only screen and (min-width: 700px) {
   .title {
@@ -71,6 +83,10 @@
 @media only screen and (min-width: 1200px) {
   .title {
     font-size: 50px;
+    margin-top: 200px;
+    min-width: 700px;
+  }
+  .projectList {
     margin-top: 200px;
   }
 }
