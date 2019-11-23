@@ -3,7 +3,6 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-
 import styles from "../styles/header.module.css";
 
 const Header = () => {
@@ -18,10 +17,9 @@ const Header = () => {
           Home
         </Col>
         <Col className={styles.headerItem} xl="1">
-          About
-        </Col>
-        <Col className={styles.headerItem} xl="1">
-          Portfolio
+          <a href="http://johann-resume.s3-website.us-east-2.amazonaws.com/">
+            Resume
+          </a>
         </Col>
         <Col className={`${styles.headerItem} ${styles.strong}`} xl="1">
           Contact
