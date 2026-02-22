@@ -10,3 +10,43 @@ html,
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* ── Slot machine hero animation ── */
+
+@keyframes slot-spin {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-272px); } /* 34px × 8 items → lands on blank */
+}
+
+@keyframes slot-settle {
+  from { transform: translateY(-272px); }
+  to   { transform: translateY(-306px); } /* 34px × 9 → lands on duplicate "AI" */
+}
+
+@keyframes slot-fade-out {
+  to { opacity: 0; filter: blur(1px); }
+}
+
+@keyframes slot-reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slot-track {
+  animation:
+    slot-spin   1.2s cubic-bezier(.2, .8, .2, 1)    0.2s forwards,
+    slot-settle 0.9s cubic-bezier(.12, .8, .18, 1)  1.4s forwards;
+}
+
+.slot-fade-line {
+  animation: slot-fade-out 0.35s ease 2.35s forwards;
+}
+
+.slot-reveal-final {
+  animation: slot-reveal 0.5s ease 2.5s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slot-track        { animation: none; transform: translateY(-306px); }
+  .slot-fade-line    { animation: none; opacity: 0; }
+  .slot-reveal-final { animation: none; opacity: 1; transform: translateY(0); }
+}
