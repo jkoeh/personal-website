@@ -1,68 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Personal Website
 
-## Available Scripts
+Johann Koeh's personal portfolio site built with React and Vite.
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+- **React** 18 — UI components
+- **Vite** 7 — dev server and production build
+- **Tailwind CSS** v4 — utility-first styling via `@tailwindcss/vite` (no config file needed)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```bash
+npm install
+npm start        # dev server at http://localhost:5173
+npm run build    # production build → dist/
+npm run preview  # preview production build locally
+```
 
-### `npm test`
+## Project Structure
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+personal-website/
+├── index.html              # HTML entry point, Google Fonts preload
+├── vite.config.js          # Vite + Tailwind plugin config
+├── public/                 # Static assets (favicon, PWA manifest)
+├── src/
+│   ├── main.jsx            # React root
+│   ├── App.jsx             # Main component + state
+│   ├── index.css           # @import "tailwindcss" + global body styles
+│   ├── components/
+│   │   └── Header.jsx      # Navigation bar
+│   └── images/             # Static images (imported as ES modules)
+└── dist/                   # Production build output (git-ignored)
+```
 
-### `npm run build`
+## Styling
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+All styles are Tailwind utility classes applied directly in JSX. There are no CSS Modules or separate stylesheet files beyond `index.css` (which only holds the Tailwind import and global `body`/`html`/`#root` rules).
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Custom breakpoints use Tailwind v4's arbitrary-value syntax, e.g. `min-[700px]:text-[25px]`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Deployment
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Projects linked from the portfolio (Tic-Tac-Toe, Resume) are hosted on AWS S3 static websites.
