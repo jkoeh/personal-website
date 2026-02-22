@@ -42,4 +42,13 @@ Custom breakpoints use Tailwind v4's arbitrary-value syntax, e.g. `min-[700px]:t
 
 ## Deployment
 
-Projects linked from the portfolio (Tic-Tac-Toe, Resume) are hosted on AWS S3 static websites.
+The site is deployed manually to AWS S3 as a static website:
+
+```bash
+pnpm build
+aws s3 sync dist/ s3://<bucket-name> --delete
+```
+
+The S3 bucket must have static website hosting enabled with a public read policy. There is no CI/CD pipeline — deploys are triggered manually after a production build.
+
+Linked sub-projects (Tic-Tac-Toe, Resume) are hosted in separate S3 buckets.

@@ -1,6 +1,8 @@
 # CLAUDE.md — Architecture & Development Guide
 
-> **PR Rule:** If a pull request introduces an architectural change (new dependency, new directory, new build step, change to styling approach, change to state management, etc.), this file **must** be updated in the same PR before it can be merged.
+> **PR Rules:**
+> - If a pull request introduces an architectural change (new dependency, new directory, new build step, change to styling approach, change to state management, etc.), this file **must** be updated in the same PR before it can be merged.
+> - If a pull request changes how to develop, test, or deploy the app (commands, environment setup, hosting), **README.md must also be updated** in the same PR.
 
 ## Tech Stack
 
@@ -52,6 +54,19 @@ personal-website/
 - Import images as ES modules: `import img from './images/foo.webp'`
 - Provide WebP + JPG pairs using a `<picture>` element with a `<source>` for webp and `<img>` fallback.
 - Use `decoding="async"` and `fetchpriority="low"` on non-critical images.
+
+## Deployment
+
+The portfolio site is deployed manually to **AWS S3** as a static website.
+
+```bash
+pnpm build
+aws s3 sync dist/ s3://<bucket-name> --delete
+```
+
+- No CI/CD pipeline — deploys are triggered manually.
+- The S3 bucket must have static website hosting enabled and a public read bucket policy.
+- Linked sub-projects (Tic-Tac-Toe, Resume) are also S3 static sites in separate buckets.
 
 ## Adding a New Project Card
 
