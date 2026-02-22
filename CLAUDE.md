@@ -57,16 +57,18 @@ personal-website/
 
 ## Deployment
 
-The portfolio site is deployed manually to **AWS S3** as a static website.
+The portfolio site is deployed automatically to **AWS S3** (`johannkoeh.io`, `us-west-1`) via GitHub Actions on every push to `main`.
 
-```bash
-pnpm build
-aws s3 sync dist/ s3://<bucket-name> --delete
-```
-
-- No CI/CD pipeline — deploys are triggered manually.
+- Workflow: `.github/workflows/deploy.yml`
+- Required GitHub secrets: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
 - The S3 bucket must have static website hosting enabled and a public read bucket policy.
 - Linked sub-projects (Tic-Tac-Toe, Resume) are also S3 static sites in separate buckets.
+
+To deploy manually (bypass CI):
+```bash
+pnpm build
+aws s3 sync dist/ s3://johannkoeh.io --delete
+```
 
 ## Adding a New Project Card
 

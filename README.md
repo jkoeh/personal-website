@@ -42,13 +42,18 @@ Custom breakpoints use Tailwind v4's arbitrary-value syntax, e.g. `min-[700px]:t
 
 ## Deployment
 
-The site is deployed manually to AWS S3 as a static website:
+Pushes to `main` automatically deploy to the `johannkoeh.io` S3 bucket via GitHub Actions (`.github/workflows/deploy.yml`).
 
+**Required GitHub secrets:**
+| Secret | Description |
+|---|---|
+| `AWS_ACCESS_KEY_ID` | IAM user key with S3 write access |
+| `AWS_SECRET_ACCESS_KEY` | Corresponding secret |
+
+To deploy manually:
 ```bash
 pnpm build
-aws s3 sync dist/ s3://<bucket-name> --delete
+aws s3 sync dist/ s3://johannkoeh.io --delete
 ```
-
-The S3 bucket must have static website hosting enabled with a public read policy. There is no CI/CD pipeline — deploys are triggered manually after a production build.
 
 Linked sub-projects (Tic-Tac-Toe, Resume) are hosted in separate S3 buckets.
