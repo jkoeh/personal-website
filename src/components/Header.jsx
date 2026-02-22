@@ -1,32 +1,25 @@
-import React from "react";
-
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import styles from "../styles/header.module.css";
-
-const Header = () => {
-  return (
-    <Container fluid={true}>
-      <Row className={`${styles.header} justify-content-between`}>
-        <Col className={styles.headerItem} xl="2">
-          Johann Koeh
-        </Col>
-        <Col className={styles.headerItem} xl={{ span: 2, offset: 3 }}></Col>
-        <Col className={styles.headerItem} xl="1">
-          Home
-        </Col>
-        <Col className={styles.headerItem} xl="1">
-          <a href="http://johann-resume.s3-website.us-east-2.amazonaws.com/">
-            Resume
-          </a>
-        </Col>
-        <Col className={`${styles.headerItem} ${styles.strong}`} xl="1">
-          Contact
-        </Col>
-      </Row>
-    </Container>
-  );
-};
+const Header = () => (
+  <div className="flex justify-between items-center text-white mx-5 my-5 min-[700px]:text-[25px]">
+    <div className="min-w-[121px] cursor-pointer hover:[text-shadow:0.5px_0.5px_#fff]">
+      Johann Koeh
+    </div>
+    <nav className="flex gap-4">
+      <div className="min-w-[121px] cursor-pointer hover:[text-shadow:0.5px_0.5px_#fff]">
+        Home
+      </div>
+      <div className="min-w-[121px] cursor-pointer hover:[text-shadow:0.5px_0.5px_#fff]">
+        <a
+          className="text-white no-underline hover:[text-shadow:0.5px_0.5px_#fff]"
+          href="http://johann-resume.s3-website.us-east-2.amazonaws.com/"
+        >
+          Resume
+        </a>
+      </div>
+      <div className="min-w-[121px] cursor-pointer hover:[text-shadow:0.5px_0.5px_#fff]">
+        Contact
+      </div>
+    </nav>
+  </div>
+);
 
 export default Header;
