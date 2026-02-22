@@ -11,10 +11,10 @@ Johann Koeh's personal portfolio site built with React and Vite.
 ## Getting Started
 
 ```bash
-npm install
-npm start        # dev server at http://localhost:5173
-npm run build    # production build → dist/
-npm run preview  # preview production build locally
+pnpm install
+pnpm start        # dev server at http://localhost:5173
+pnpm build        # production build → dist/
+pnpm preview      # preview production build locally
 ```
 
 ## Project Structure

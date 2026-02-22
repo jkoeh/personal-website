@@ -7,7 +7,8 @@
 | Layer | Choice | Notes |
 |---|---|---|
 | UI | React 18 | Functional components + hooks only |
-| Build | Vite 7 | `npm start` → dev server, `npm run build` → `dist/` |
+| Package manager | pnpm | Lockfile: `pnpm-lock.yaml`. Do not use npm or yarn. |
+| Build | Vite 7 | `pnpm start` → dev server, `pnpm build` → `dist/` |
 | Styling | Tailwind CSS v4 | Zero-config via `@tailwindcss/vite` plugin |
 | Language | JSX / ES Modules | `"type": "module"` in package.json |
 | Font | Roboto Condensed | Loaded via Google Fonts in `index.html` |
