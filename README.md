@@ -44,13 +44,26 @@ Custom breakpoints use Tailwind v4's arbitrary-value syntax, e.g. `min-[700px]:t
 
 Pushes to `main` automatically deploy to the `johannkoeh.io` S3 bucket via GitHub Actions (`.github/workflows/deploy.yml`).
 
-**Required GitHub secrets:**
-| Secret | Description |
-|---|---|
-| `AWS_ACCESS_KEY_ID` | IAM user key with S3 write access |
-| `AWS_SECRET_ACCESS_KEY` | Corresponding secret |
+**No static AWS credentials are stored anywhere.** The workflow uses GitHub OIDC — AWS issues short-lived tokens per run, trusted only for this repo's `main` branch.
 
-To deploy manually:
+### One-time infrastructure bootstrap
+
+The IAM role and OIDC trust are managed by Terraform:
+
+```bash
+cd terraform
+terraform init
+terraform apply
+```
+
+After applying, add one GitHub Actions **variable** (not a secret) in repo Settings → Variables → Actions:
+
+| Variable | Value |
+|---|---|
+| `AWS_ACCOUNT_ID` | Your 12-digit AWS account ID |
+
+### Manual deploy (bypass CI)
+
 ```bash
 pnpm build
 aws s3 sync dist/ s3://johannkoeh.io --delete

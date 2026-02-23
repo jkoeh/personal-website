@@ -22,6 +22,11 @@ personal-website/
 ├── index.html              # Entry HTML — sets theme color, loads Google Font
 ├── vite.config.js          # Vite config: plugins [react(), tailwindcss()]
 ├── package.json
+├── terraform/              # AWS infra — GitHub OIDC provider + deploy IAM role
+│   ├── providers.tf
+│   ├── variables.tf
+│   ├── github_oidc.tf
+│   └── outputs.tf
 ├── public/                 # Copied verbatim to dist/ (favicon, PWA manifest)
 ├── src/
 │   ├── main.jsx            # Mounts <App /> into #root
@@ -60,7 +65,9 @@ personal-website/
 The portfolio site is deployed automatically to **AWS S3** (`johannkoeh.io`, `us-west-1`) via GitHub Actions on every push to `main`.
 
 - Workflow: `.github/workflows/deploy.yml`
-- Required GitHub secrets: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
+- **No static credentials.** GitHub Actions authenticates to AWS via OIDC (short-lived tokens). No secrets required in GitHub.
+- Required GitHub Actions variable (not secret): `AWS_ACCOUNT_ID` (set under repo Settings → Variables).
+- IAM role and OIDC provider are managed by Terraform in `terraform/`. Run once to bootstrap; see README.md.
 - The S3 bucket must have static website hosting enabled and a public read bucket policy.
 - Linked sub-projects (Tic-Tac-Toe, Resume) are also S3 static sites in separate buckets.
 
