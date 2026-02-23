@@ -22,11 +22,6 @@ personal-website/
 ├── index.html              # Entry HTML — sets theme color, loads Google Font
 ├── vite.config.js          # Vite config: plugins [react(), tailwindcss()]
 ├── package.json
-├── terraform/              # AWS infra — GitHub OIDC provider + deploy IAM role
-│   ├── providers.tf
-│   ├── variables.tf
-│   ├── github_oidc.tf
-│   └── outputs.tf
 ├── public/                 # Copied verbatim to dist/ (favicon, PWA manifest)
 ├── src/
 │   ├── main.jsx            # Mounts <App /> into #root
@@ -62,20 +57,12 @@ personal-website/
 
 ## Deployment
 
-The portfolio site is deployed automatically to **AWS S3** (`johannkoeh.io`, `us-west-1`) via GitHub Actions on every push to `main`.
+The portfolio site is deployed automatically to **Cloudflare Pages** via the GitHub integration on every push to `main`. No workflow file or secrets required — Cloudflare Pages pulls from the repo directly.
 
-- Workflow: `.github/workflows/deploy.yml`
-- **No static credentials.** GitHub Actions authenticates to AWS via OIDC (short-lived tokens). No secrets required in GitHub.
-- Required GitHub Actions variable (not secret): `AWS_ACCOUNT_ID` (set under repo Settings → Variables).
-- IAM role and OIDC provider are managed by Terraform in `terraform/`. Run once to bootstrap; see README.md.
-- The S3 bucket must have static website hosting enabled and a public read bucket policy.
-- Linked sub-projects (Tic-Tac-Toe, Resume) are also S3 static sites in separate buckets.
-
-To deploy manually (bypass CI):
-```bash
-pnpm build
-aws s3 sync dist/ s3://johannkoeh.io --delete
-```
+- Build command: `pnpm build`
+- Output directory: `dist/`
+- Domain: `johannkoeh.io` (registered and DNS-managed on Cloudflare)
+- Linked sub-projects (Tic-Tac-Toe, Resume) are hosted as separate Cloudflare Pages projects.
 
 ## Adding a New Project Card
 
