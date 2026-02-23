@@ -12,7 +12,7 @@
 | Package manager | pnpm | Lockfile: `pnpm-lock.yaml`. Do not use npm or yarn. |
 | Build | Vite 7 | `pnpm start` → dev server, `pnpm build` → `dist/` |
 | Styling | Tailwind CSS v4 | Zero-config via `@tailwindcss/vite` plugin |
-| Language | JSX / ES Modules | `"type": "module"` in package.json |
+| Language | TypeScript / TSX | `"type": "module"` in package.json; `tsconfig.json` targets ES2020 |
 | Font | Roboto Condensed | Loaded via Google Fonts in `index.html` |
 
 ## Repository Layout
@@ -20,15 +20,18 @@
 ```
 personal-website/
 ├── index.html              # Entry HTML — sets theme color, loads Google Font
-├── vite.config.js          # Vite config: plugins [react(), tailwindcss()]
+├── vite.config.ts          # Vite config: plugins [react(), tailwindcss()]
+├── tsconfig.json           # TypeScript config (strict, noEmit, bundler resolution)
 ├── package.json
 ├── public/                 # Copied verbatim to dist/ (favicon, PWA manifest)
 ├── src/
-│   ├── main.jsx            # Mounts <App /> into #root
-│   ├── App.jsx             # Root component — layout + project-type state
+│   ├── vite-env.d.ts       # Vite client types (image imports, env vars)
+│   ├── main.tsx            # Mounts <App /> into #root
+│   ├── App.tsx             # Root component — layout + project-type state
 │   ├── index.css           # @import "tailwindcss" + global body/html/#root rules
 │   ├── components/
-│   │   └── Header.jsx      # Navigation bar (presentational, no props)
+│   │   ├── Header.tsx      # Navigation bar (presentational, no props)
+│   │   └── HeroSlot.tsx    # Slot-machine hero animation (pure CSS, no state)
 │   └── images/             # Imported as ES module URLs (webp + jpg pairs)
 └── dist/                   # Git-ignored build output
 ```
@@ -46,7 +49,7 @@ personal-website/
 - Functional components only. No class components.
 - One component per file. File name matches the component name.
 - Presentational components (no state, no side-effects) go in `src/components/`.
-- State lives in `App.jsx` unless a component exclusively owns it.
+- State lives in `App.tsx` unless a component exclusively owns it.
 - No external state management library (Redux, Zustand, etc.) — use `useState`/`useContext`.
 
 ## Images

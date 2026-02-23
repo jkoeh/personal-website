@@ -8,7 +8,7 @@ const PROJECT_TYPES = ['ML', 'Front End', 'Back End'];
 function App() {
   const [projectTypeSelected, setProjectType] = useState('');
 
-  function toggleType(type) {
+  function toggleType(type: string) {
     setProjectType((prev) => (prev === type ? '' : type));
   }
 

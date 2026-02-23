@@ -33,16 +33,16 @@ html,
 
 .slot-track {
   animation:
-    slot-spin   1.2s cubic-bezier(.2, .8, .2, 1)    0.2s forwards,
-    slot-settle 0.9s cubic-bezier(.12, .8, .18, 1)  1.4s forwards;
+    slot-spin   2.5s cubic-bezier(.2, .8, .2, 1)    0.3s forwards,
+    slot-settle 1.5s cubic-bezier(.12, .8, .18, 1)  2.8s forwards;
 }
 
 .slot-fade-line {
-  animation: slot-fade-out 0.35s ease 2.35s forwards;
+  animation: slot-fade-out 0.4s ease 4.5s forwards;
 }
 
 .slot-reveal-final {
-  animation: slot-reveal 0.5s ease 2.5s forwards;
+  animation: slot-reveal 0.6s ease 4.7s forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
