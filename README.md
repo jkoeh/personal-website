@@ -42,10 +42,12 @@ Custom breakpoints use Tailwind v4's arbitrary-value syntax, e.g. `min-[700px]:t
 
 ## Deployment
 
-Pushes to `main` automatically deploy to **Cloudflare Pages** via the native GitHub integration — no workflow file or secrets needed.
+Pushes to `master` automatically deploy to **Cloudflare Pages** through
+Cloudflare's Git integration.
 
 - Build command: `pnpm build`
 - Output directory: `dist/`
+- Cloudflare Pages project: `personal-website`
 - Domain: `johannkoeh.io` (registered and DNS-managed on Cloudflare)
 
 Linked sub-projects (Tic-Tac-Toe, Resume) are hosted as separate Cloudflare Pages projects.

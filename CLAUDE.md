@@ -60,10 +60,12 @@ personal-website/
 
 ## Deployment
 
-The portfolio site is deployed automatically to **Cloudflare Pages** via the GitHub integration on every push to `main`. No workflow file or secrets required — Cloudflare Pages pulls from the repo directly.
+The portfolio site deploys automatically to **Cloudflare Pages** through
+Cloudflare's Git integration on every push to `master`.
 
 - Build command: `pnpm build`
 - Output directory: `dist/`
+- Cloudflare Pages project: `personal-website`
 - Domain: `johannkoeh.io` (registered and DNS-managed on Cloudflare)
 - Linked sub-projects (Tic-Tac-Toe, Resume) are hosted as separate Cloudflare Pages projects.
 
