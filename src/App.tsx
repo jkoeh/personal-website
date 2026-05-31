@@ -1,12 +1,14 @@
 import Header from './components/Header';
 import openShelfImg from './images/openshelf.png';
 
-const focusAreas = ['AI products', 'Full-stack systems', 'Audio + reading UX'];
 const metrics = [
   ['Public-domain', 'catalog'],
   ['Word-level', 'sync'],
   ['Cloudflare', 'edge'],
 ];
+
+const syncWords = ['The', 'room', 'seemed', 'full', 'of', 'listening'];
+const waveformBars = [34, 58, 42, 76, 52, 88, 44, 63, 39, 70, 48, 82, 55, 36];
 
 function App() {
   return (
@@ -30,15 +32,19 @@ function App() {
                 interfaces that feel fast, legible, and quietly inevitable.
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-3">
-                {focusAreas.map((area) => (
-                  <span
-                    key={area}
-                    className="border border-[#f7f4ec]/18 bg-[#f7f4ec]/6 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#f7f4ec]/80"
-                  >
-                    {area}
-                  </span>
-                ))}
+              <div className="mt-10 flex flex-wrap gap-4 text-sm font-bold uppercase tracking-[0.18em] text-[#f7f4ec]/55">
+                <a
+                  href="#work"
+                  className="border border-[#b7ff5d] bg-[#b7ff5d] px-5 py-3 text-[#171716] no-underline transition-transform hover:-translate-y-0.5"
+                >
+                  See the work
+                </a>
+                <a
+                  href="https://github.com/jkoeh"
+                  className="border border-[#f7f4ec]/18 px-5 py-3 text-[#f7f4ec]/72 no-underline transition-colors hover:border-[#f7f4ec]/50 hover:text-[#f7f4ec]"
+                >
+                  GitHub
+                </a>
               </div>
             </div>
 
@@ -77,15 +83,70 @@ function App() {
             href="https://openshelf.johannkoeh.io"
             className="group grid overflow-hidden border border-[#f7f4ec]/14 bg-[#22211f] text-[#f7f4ec] no-underline transition-colors hover:border-[#b7ff5d]/70 min-[900px]:grid-cols-[.9fr_1.1fr]"
           >
-            <div className="relative min-h-[360px] overflow-hidden bg-[#24e000]">
-              <img
-                src={openShelfImg}
-                alt="OpenShelf audiobook cover"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025]"
-              />
-              <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between bg-[#171716]/88 px-5 py-4 text-xs font-bold uppercase tracking-[0.24em] text-[#f7f4ec]/74 backdrop-blur">
-                <span>Live project</span>
-                <span>Open source</span>
+            <div className="relative min-h-[440px] overflow-hidden bg-[#e8e1d1] p-5 text-[#171716] min-[700px]:p-8">
+              <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(#171716_1px,transparent_1px),linear-gradient(90deg,#171716_1px,transparent_1px)] [background-size:44px_44px]" />
+              <div className="relative mx-auto flex h-full max-w-[520px] flex-col justify-between border border-[#171716]/18 bg-[#f7f4ec] p-4 shadow-[12px_12px_0_#171716] min-[700px]:p-5">
+                <div className="flex items-center justify-between border-b border-[#171716]/15 pb-3 text-[11px] font-black uppercase tracking-[0.2em] text-[#171716]/55">
+                  <span>OpenShelf Reader</span>
+                  <span>Streaming</span>
+                </div>
+
+                <div className="mt-5 grid gap-4 min-[520px]:grid-cols-[112px_1fr]">
+                  <div className="border border-[#171716]/18 bg-[#171716] p-2">
+                    <img
+                      src={openShelfImg}
+                      alt="OpenShelf book thumbnail"
+                      className="aspect-[3/4] w-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.22em] text-[#171716]/48">
+                      Chapter 03
+                    </p>
+                    <h3 className="mt-2 text-3xl font-black uppercase leading-none tracking-normal">
+                      Listen while the text keeps pace
+                    </h3>
+                    <p className="mt-4 text-sm leading-6 text-[#171716]/62">
+                      EPUBs become narrated audio with word-level timestamps, then stream from
+                      Cloudflare while the reader highlights the current word.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 border border-[#171716]/18 bg-white p-4">
+                  <div className="flex flex-wrap gap-x-2 gap-y-3 text-2xl font-bold leading-tight tracking-normal">
+                    {syncWords.map((word) => (
+                      <span
+                        key={word}
+                        className={
+                          word === 'full'
+                            ? 'bg-[#b7ff5d] px-1 text-[#171716]'
+                            : 'text-[#171716]/76'
+                        }
+                      >
+                        {word}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 flex h-20 items-end gap-1.5 border-t border-[#171716]/12 pt-4">
+                    {waveformBars.map((height, index) => (
+                      <span
+                        key={`${height}-${index}`}
+                        className={
+                          index < 7 ? 'flex-1 bg-[#4eb4ff]' : 'flex-1 bg-[#171716]/18'
+                        }
+                        style={{ height: `${height}%` }}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-5 grid grid-cols-3 gap-2 text-center text-[10px] font-black uppercase tracking-[0.16em] text-[#171716]/58">
+                  <span className="border border-[#171716]/14 py-3">EPUB in</span>
+                  <span className="border border-[#171716]/14 py-3">AI audio</span>
+                  <span className="border border-[#171716]/14 py-3">Synced text</span>
+                </div>
               </div>
             </div>
 
