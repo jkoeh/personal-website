@@ -26,11 +26,10 @@ personal-website/
 ├── public/                 # Static assets (favicon, PWA manifest)
 ├── src/
 │   ├── main.tsx            # React root
-│   ├── App.tsx             # Main component + state
+│   ├── App.tsx             # Editorial portfolio layout and project feature
 │   ├── index.css           # @import "tailwindcss" + global body styles
 │   ├── components/
-│   │   ├── Header.tsx      # Navigation bar
-│   │   └── HeroSlot.tsx    # Slot-machine hero animation
+│   │   └── Header.tsx      # Navigation bar
 │   └── images/             # Static images (imported as ES modules)
 └── dist/                   # Production build output (git-ignored)
 ```

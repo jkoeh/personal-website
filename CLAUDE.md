@@ -27,11 +27,10 @@ personal-website/
 ├── src/
 │   ├── vite-env.d.ts       # Vite client types (image imports, env vars)
 │   ├── main.tsx            # Mounts <App /> into #root
-│   ├── App.tsx             # Root component — layout + project-type state
+│   ├── App.tsx             # Root component — editorial portfolio layout
 │   ├── index.css           # @import "tailwindcss" + global body/html/#root rules
 │   ├── components/
-│   │   ├── Header.tsx      # Navigation bar (presentational, no props)
-│   │   └── HeroSlot.tsx    # Slot-machine hero animation (pure CSS, no state)
+│   │   └── Header.tsx      # Navigation bar (presentational, no props)
 │   └── images/             # Imported as ES module URLs (webp + jpg pairs)
 └── dist/                   # Git-ignored build output
 ```
@@ -74,7 +73,7 @@ Cloudflare's Git integration on every push to `master`.
 
 1. Add the project image(s) to `src/images/`.
 2. Import and render the card inside `App.tsx` (or extract a `ProjectCard` component if there are 2+ cards).
-3. Link out to the externally hosted project (S3 static site or similar).
+3. Link out to the externally hosted project.
 
 ## What Counts as an Architectural Change (requires updating this file)
 
