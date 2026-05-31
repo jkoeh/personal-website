@@ -22,8 +22,7 @@ function App() {
                 Fun software with a little bit of edge.
               </h1>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-[#d8d2c3] min-[700px]:text-xl">
-                I make web things that feel alive: clear enough to use, playful enough to
-                remember, and sturdy enough for real people.
+                I make things. Playful, sturdy, and free where possible.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4 text-sm font-bold uppercase tracking-[0.18em] text-[#f7f4ec]/55">
