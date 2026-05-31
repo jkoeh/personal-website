@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Header from './components/Header';
 import HeroSlot from './components/HeroSlot';
-import ticTacToeImg from './images/tic-tac-toe.png';
+import openShelfImg from './images/openshelf.png';
 
 const PROJECT_TYPES = ['ML', 'Front End', 'Back End'];
 
@@ -49,18 +49,23 @@ function App() {
         <div className="grid grid-cols-1 min-[700px]:grid-cols-2 gap-6 max-w-4xl">
           <div className="border border-white/10 overflow-hidden">
             <img
-              src={ticTacToeImg}
-              alt="Tic-Tac-Toe screenshot"
+              src={openShelfImg}
+              alt="OpenShelf audiobook cover"
               className="w-full aspect-square object-cover"
             />
             <div className="p-5">
-              <p className="text-white/30 text-xs uppercase tracking-widest">React · Front End</p>
-              <h3 className="text-white font-bold text-lg uppercase tracking-wide mt-1">Tic-Tac-Toe</h3>
+              <p className="text-white/30 text-xs uppercase tracking-widest">
+                Expo · Cloudflare · AI Audio
+              </p>
+              <h3 className="text-white font-bold text-lg uppercase tracking-wide mt-1">
+                OpenShelf
+              </h3>
               <p className="text-white/50 text-sm mt-2">
-                A classic game built with vanilla React. No libraries, no fluff.
+                Public domain audiobooks with AI narration, streaming audio, and word-level
+                read-along sync.
               </p>
               <a
-                href="http://johann-tic-tac-toe.s3-website.us-east-2.amazonaws.com/"
+                href="https://openshelf.johannkoeh.io"
                 className="inline-block mt-5 text-xs text-white uppercase tracking-widest hover:text-white/50 transition-colors no-underline"
               >
                 View Project →

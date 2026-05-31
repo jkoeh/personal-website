@@ -60,17 +60,20 @@ personal-website/
 
 ## Deployment
 
-The portfolio site is deployed automatically to **Cloudflare Pages** via the GitHub integration on every push to `main`. No workflow file or secrets required — Cloudflare Pages pulls from the repo directly.
+The portfolio site deploys automatically to **Cloudflare Pages** through
+Cloudflare's Git integration on every push to `master`.
 
 - Build command: `pnpm build`
 - Output directory: `dist/`
+- Cloudflare Pages project: `personal-website`
 - Domain: `johannkoeh.io` (registered and DNS-managed on Cloudflare)
-- Linked sub-projects (Tic-Tac-Toe, Resume) are hosted as separate Cloudflare Pages projects.
+- The first project card links to OpenShelf at `https://openshelf.johannkoeh.io`,
+  hosted as a separate Cloudflare Pages project.
 
 ## Adding a New Project Card
 
 1. Add the project image(s) to `src/images/`.
-2. Import and render the card inside `App.jsx` (or extract a `ProjectCard` component if there are 2+ cards).
+2. Import and render the card inside `App.tsx` (or extract a `ProjectCard` component if there are 2+ cards).
 3. Link out to the externally hosted project (S3 static site or similar).
 
 ## What Counts as an Architectural Change (requires updating this file)

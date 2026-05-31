@@ -22,14 +22,15 @@ pnpm preview      # preview production build locally
 ```
 personal-website/
 ├── index.html              # HTML entry point, Google Fonts preload
-├── vite.config.js          # Vite + Tailwind plugin config
+├── vite.config.ts          # Vite + Tailwind plugin config
 ├── public/                 # Static assets (favicon, PWA manifest)
 ├── src/
-│   ├── main.jsx            # React root
-│   ├── App.jsx             # Main component + state
+│   ├── main.tsx            # React root
+│   ├── App.tsx             # Main component + state
 │   ├── index.css           # @import "tailwindcss" + global body styles
 │   ├── components/
-│   │   └── Header.jsx      # Navigation bar
+│   │   ├── Header.tsx      # Navigation bar
+│   │   └── HeroSlot.tsx    # Slot-machine hero animation
 │   └── images/             # Static images (imported as ES modules)
 └── dist/                   # Production build output (git-ignored)
 ```
@@ -42,10 +43,13 @@ Custom breakpoints use Tailwind v4's arbitrary-value syntax, e.g. `min-[700px]:t
 
 ## Deployment
 
-Pushes to `main` automatically deploy to **Cloudflare Pages** via the native GitHub integration — no workflow file or secrets needed.
+Pushes to `master` automatically deploy to **Cloudflare Pages** through
+Cloudflare's Git integration.
 
 - Build command: `pnpm build`
 - Output directory: `dist/`
+- Cloudflare Pages project: `personal-website`
 - Domain: `johannkoeh.io` (registered and DNS-managed on Cloudflare)
 
-Linked sub-projects (Tic-Tac-Toe, Resume) are hosted as separate Cloudflare Pages projects.
+The first project card links to OpenShelf at `https://openshelf.johannkoeh.io`,
+which is hosted as a separate Cloudflare Pages project.
