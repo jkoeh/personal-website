@@ -16,7 +16,7 @@ const Header = () => (
         </a>
         <a
           className="text-current no-underline transition-colors hover:text-[#f7f4ec]"
-          href="http://johann-resume.s3-website.us-east-2.amazonaws.com/"
+          href="https://www.linkedin.com/in/johann-koeh-12884639/"
         >
           Resume
         </a>

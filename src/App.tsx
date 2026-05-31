@@ -1,14 +1,8 @@
 import Header from './components/Header';
 import openShelfImg from './images/openshelf.png';
 
-const metrics = [
-  ['Public-domain', 'catalog'],
-  ['Word-level', 'sync'],
-  ['Cloudflare', 'edge'],
-];
-
-const syncWords = ['The', 'room', 'seemed', 'full', 'of', 'listening'];
-const waveformBars = [34, 58, 42, 76, 52, 88, 44, 63, 39, 70, 48, 82, 55, 36];
+const flipWords = ['Public', 'domain', 'books', 'read', 'aloud'];
+const audioBars = [30, 54, 42, 78, 48, 88, 52, 68, 36, 72, 44, 58];
 
 function App() {
   return (
@@ -19,17 +13,17 @@ function App() {
         <Header />
 
         <main className="flex-1 px-6 py-10 min-[700px]:px-12 min-[1040px]:px-16">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 min-[980px]:grid-cols-[1.08fr_.92fr] min-[980px]:items-end">
-            <div className="pt-10 min-[980px]:pt-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="pt-10 min-[980px]:pt-24">
               <p className="mb-6 text-xs font-bold uppercase tracking-[0.34em] text-[#b7ff5d]">
                 Johann Koeh
               </p>
-              <h1 className="max-w-4xl text-[52px] font-black leading-[0.92] tracking-normal min-[700px]:text-[88px] min-[1160px]:text-[112px]">
-                I build calm, useful software with a little bit of edge.
+              <h1 className="max-w-5xl text-[58px] font-black leading-[0.92] tracking-normal min-[700px]:text-[96px] min-[1160px]:text-[126px]">
+                Fun software with a little bit of edge.
               </h1>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-[#d8d2c3] min-[700px]:text-xl">
-                Product-minded engineer working across AI, media, and web systems. I like
-                interfaces that feel fast, legible, and quietly inevitable.
+                I make web things that feel alive: clear enough to use, playful enough to
+                remember, and sturdy enough for real people.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4 text-sm font-bold uppercase tracking-[0.18em] text-[#f7f4ec]/55">
@@ -47,25 +41,6 @@ function App() {
                 </a>
               </div>
             </div>
-
-            <aside className="border-y border-[#f7f4ec]/14 py-6 min-[980px]:mb-5 min-[980px]:border-y-0 min-[980px]:border-l min-[980px]:py-0 min-[980px]:pl-10">
-              <p className="text-sm leading-7 text-[#d8d2c3]">
-                Currently shaping OpenShelf, an open-source audiobook platform that turns
-                public-domain books into narrated, synchronized reading experiences.
-              </p>
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                {metrics.map(([top, bottom]) => (
-                  <div key={top} className="border-t border-[#f7f4ec]/18 pt-4">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#f7f4ec]/42">
-                      {top}
-                    </p>
-                    <p className="mt-1 text-xl font-black uppercase tracking-normal text-[#f7f4ec]">
-                      {bottom}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </aside>
           </div>
         </main>
 
@@ -83,69 +58,62 @@ function App() {
             href="https://openshelf.johannkoeh.io"
             className="group grid overflow-hidden border border-[#f7f4ec]/14 bg-[#22211f] text-[#f7f4ec] no-underline transition-colors hover:border-[#b7ff5d]/70 min-[900px]:grid-cols-[.9fr_1.1fr]"
           >
-            <div className="relative min-h-[440px] overflow-hidden bg-[#e8e1d1] p-5 text-[#171716] min-[700px]:p-8">
-              <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(#171716_1px,transparent_1px),linear-gradient(90deg,#171716_1px,transparent_1px)] [background-size:44px_44px]" />
-              <div className="relative mx-auto flex h-full max-w-[520px] flex-col justify-between border border-[#171716]/18 bg-[#f7f4ec] p-4 shadow-[12px_12px_0_#171716] min-[700px]:p-5">
-                <div className="flex items-center justify-between border-b border-[#171716]/15 pb-3 text-[11px] font-black uppercase tracking-[0.2em] text-[#171716]/55">
-                  <span>OpenShelf Reader</span>
-                  <span>Streaming</span>
-                </div>
+            <div className="relative min-h-[440px] overflow-hidden bg-[#e8e1d1] p-6 text-[#171716] min-[700px]:p-10">
+              <div className="absolute inset-0 opacity-35 [background-image:linear-gradient(#171716_1px,transparent_1px),linear-gradient(90deg,#171716_1px,transparent_1px)] [background-size:44px_44px]" />
+              <div className="relative flex h-full min-h-[360px] items-center justify-center [perspective:1500px]">
+                <div className="relative h-[300px] w-[218px] transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:translateX(34px)_rotateZ(-2deg)] min-[700px]:h-[342px] min-[700px]:w-[248px]">
+                  <div className="absolute inset-0 translate-x-5 translate-y-5 bg-[#171716]" />
 
-                <div className="mt-5 grid gap-4 min-[520px]:grid-cols-[112px_1fr]">
-                  <div className="border border-[#171716]/18 bg-[#171716] p-2">
+                  <div className="absolute inset-0 origin-left border border-[#171716]/25 bg-[#fffaf0] p-5 shadow-[8px_8px_0_rgba(23,23,22,.18)] transition-transform duration-700 [backface-visibility:hidden] [transform-style:preserve-3d] group-hover:[transform:rotateY(-118deg)]">
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#171716]/42">
+                      Generated audio
+                    </p>
+                    <div className="mt-6 flex h-16 items-end gap-1.5 border-y border-[#171716]/12 py-3">
+                      {audioBars.map((height, index) => (
+                        <span
+                          key={`${height}-${index}`}
+                          className={index < 7 ? 'flex-1 bg-[#4eb4ff]' : 'flex-1 bg-[#171716]/18'}
+                          style={{ height: `${height}%` }}
+                        />
+                      ))}
+                    </div>
+                    <div className="mt-7 flex flex-wrap gap-x-2 gap-y-3 text-3xl font-black leading-none tracking-normal">
+                      {flipWords.map((word) => (
+                        <span
+                          key={word}
+                          className={word === 'read' ? 'bg-[#b7ff5d] px-1' : 'text-[#171716]/76'}
+                        >
+                          {word}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="absolute inset-0 origin-left border border-[#171716]/20 bg-[#f7f4ec] p-5 transition-transform delay-75 duration-700 [backface-visibility:hidden] group-hover:[transform:rotateY(-92deg)]">
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#171716]/42">
+                      Word sync
+                    </p>
+                    <div className="mt-6 space-y-3">
+                      <span className="block h-3 w-full bg-[#171716]/14" />
+                      <span className="block h-3 w-10/12 bg-[#171716]/14" />
+                      <span className="block h-3 w-8/12 bg-[#b7ff5d]" />
+                      <span className="block h-3 w-11/12 bg-[#171716]/14" />
+                    </div>
+                  </div>
+
+                  <div className="absolute inset-0 origin-left overflow-hidden border border-[#171716]/25 bg-[#171716] p-3 shadow-[12px_12px_0_#171716] transition-transform delay-150 duration-700 [backface-visibility:hidden] group-hover:[transform:rotateY(-42deg)]">
                     <img
                       src={openShelfImg}
-                      alt="OpenShelf book thumbnail"
-                      className="aspect-[3/4] w-full object-cover"
+                      alt="OpenShelf book cover"
+                      className="h-full w-full object-cover"
                     />
                   </div>
-                  <div>
-                    <p className="text-xs font-black uppercase tracking-[0.22em] text-[#171716]/48">
-                      Chapter 03
-                    </p>
-                    <h3 className="mt-2 text-3xl font-black uppercase leading-none tracking-normal">
-                      Listen while the text keeps pace
-                    </h3>
-                    <p className="mt-4 text-sm leading-6 text-[#171716]/62">
-                      EPUBs become narrated audio with word-level timestamps, then stream from
-                      Cloudflare while the reader highlights the current word.
-                    </p>
-                  </div>
-                </div>
 
-                <div className="mt-6 border border-[#171716]/18 bg-white p-4">
-                  <div className="flex flex-wrap gap-x-2 gap-y-3 text-2xl font-bold leading-tight tracking-normal">
-                    {syncWords.map((word) => (
-                      <span
-                        key={word}
-                        className={
-                          word === 'full'
-                            ? 'bg-[#b7ff5d] px-1 text-[#171716]'
-                            : 'text-[#171716]/76'
-                        }
-                      >
-                        {word}
-                      </span>
-                    ))}
+                  <div className="absolute -bottom-12 left-1/2 flex -translate-x-1/2 gap-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#171716]/58">
+                    <span className="whitespace-nowrap border border-[#171716]/16 bg-[#f7f4ec] px-3 py-2">
+                      Hover to flip
+                    </span>
                   </div>
-
-                  <div className="mt-6 flex h-20 items-end gap-1.5 border-t border-[#171716]/12 pt-4">
-                    {waveformBars.map((height, index) => (
-                      <span
-                        key={`${height}-${index}`}
-                        className={
-                          index < 7 ? 'flex-1 bg-[#4eb4ff]' : 'flex-1 bg-[#171716]/18'
-                        }
-                        style={{ height: `${height}%` }}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-5 grid grid-cols-3 gap-2 text-center text-[10px] font-black uppercase tracking-[0.16em] text-[#171716]/58">
-                  <span className="border border-[#171716]/14 py-3">EPUB in</span>
-                  <span className="border border-[#171716]/14 py-3">AI audio</span>
-                  <span className="border border-[#171716]/14 py-3">Synced text</span>
                 </div>
               </div>
             </div>
@@ -159,8 +127,8 @@ function App() {
                   OpenShelf
                 </h2>
                 <p className="mt-6 max-w-xl text-lg leading-8 text-[#d8d2c3]">
-                  Public-domain audiobooks with AI narration, streaming audio, and word-level
-                  read-along sync across a mobile-first reader.
+                  Books of the public domain are our shared treasure. We should be able to hear
+                  them read to us.
                 </p>
               </div>
 
@@ -181,21 +149,6 @@ function App() {
               </div>
             </div>
           </a>
-
-          <div className="mt-12 grid gap-5 border-t border-[#f7f4ec]/14 pt-8 text-sm leading-7 text-[#d8d2c3] min-[780px]:grid-cols-3">
-            <p>
-              I care about the boring parts that make products feel good: data contracts,
-              deployment paths, loading states, and the small moments where users decide whether
-              to trust a tool.
-            </p>
-            <p>
-              The work usually lands somewhere between product engineering and systems design,
-              with a bias toward shipping the thing people can actually touch.
-            </p>
-            <p>
-              This site is intentionally small. The projects should do most of the talking.
-            </p>
-          </div>
         </div>
       </section>
 
