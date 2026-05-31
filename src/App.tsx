@@ -15,9 +15,6 @@ function App() {
         <main className="flex-1 px-6 py-10 min-[700px]:px-12 min-[1040px]:px-16">
           <div className="mx-auto max-w-7xl">
             <div className="pt-10 min-[980px]:pt-24">
-              <p className="mb-6 text-xs font-bold uppercase tracking-[0.34em] text-[#b7ff5d]">
-                Johann Koeh
-              </p>
               <h1 className="max-w-5xl text-[58px] font-black leading-[0.92] tracking-normal min-[700px]:text-[96px] min-[1160px]:text-[126px]">
                 Fun software with a little bit of edge.
               </h1>
